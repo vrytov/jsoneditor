@@ -4442,7 +4442,7 @@ Node.prototype._escapeHTML = function (text) {
         .replace(/ $/, '&nbsp;');  // space at end
 
     var json = JSON.stringify(htmlEscaped);
-    var html = json.substring(1, json.length - 1);
+    var html = json.substring(1, json.length - 1).replace(/\\"/g, '"');
     if (this.editor.options.escapeUnicode === true) {
       html = util.escapeUnicodeChars(html);
     }
